@@ -25,3 +25,70 @@ A full-stack MERN application that uses AI to analyze resumes against job descri
 **File Handling:** Multer, pdf-parse
 
 ## Project Structure
+resume-analyzer/
+├── client/ # React frontend (Vite)
+│ └── src/
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # Route-level pages
+│ ├── context/ # Auth & theme context providers
+│ └── api/ # Axios API client
+└── server/ # Express backend
+├── models/ # Mongoose schemas
+├── controllers/ # Route handlers
+├── routes/ # API route definitions
+├── middleware/ # Auth middleware
+└── utils/ # PDF parsing & AI integration
+
+
+## Getting Started
+
+### Prerequisites
+- Node.js v18+
+- A MongoDB database (local or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
+- A [Google Gemini API key](https://aistudio.google.com/apikey) (free tier available)
+
+### Backend Setup
+
+```bash
+cd server
+npm install
+cp .env.example .env
+```
+
+Fill in `.env`:
+
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_random_secret_string
+GEMINI_API_KEY=your_gemini_api_key
+CLIENT_URL=http://localhost:5173
+
+```bash
+npm run dev
+```
+
+### Frontend Setup
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Open **http://localhost:5173** in your browser.
+
+## How It Works
+
+1. Sign up / log in
+2. Upload a resume (PDF) and paste a job description
+3. AI analyzes the match and returns a score, missing keywords, strengths, and suggestions
+4. Optionally generate AI-rewritten bullet points, compare multiple resumes, or build a new resume from scratch
+5. All analyses are saved to your history, viewable anytime
+
+## License
+
+This project is open source and available for learning purposes.
+
+---
+
+Built as a full-stack portfolio project combining the MERN stack with AI integration.
